@@ -19,3 +19,14 @@ html {
   main {
     padding: 32px;
   }
+
+  /* solution */
+  header {
+    height: 66px;
+    background: slateblue;
+    color: white;
+    opacity: 0.96;
+    position: sticky;
+    top: -16px;
+    padding-top: 16px
+  }
