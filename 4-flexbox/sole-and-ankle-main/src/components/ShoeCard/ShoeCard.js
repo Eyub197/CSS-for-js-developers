@@ -83,13 +83,10 @@ const Link = styled.a`
 `;
 
 const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column; 
+
 `;
 
 const ImageWrapper = styled.div`
-  position: relative;
-  max-width: 340px;
   position: relative;
 
   &::after {

@@ -61,8 +61,7 @@ const MainColumn = styled.div`
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  flex:1;
- 
+  align-items: baseline;
 `;
 
 const Title = styled.h2`

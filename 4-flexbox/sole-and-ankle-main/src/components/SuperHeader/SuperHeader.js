@@ -29,11 +29,13 @@ const SuperHeader = () => {
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 40px;
+  padding-inline: 32px;
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
-  padding-inline: 32px;
-  padding-block: 12px;
 `;
 
 const MarketingMessage = styled.span`
@@ -45,7 +47,8 @@ const HelpLink = styled.a`
   color: inherit;
   text-decoration: none;
   outline-offset: 2px;
-  margin-inline: 24px;
+  /* the margin works to */
+  /* margin-inline: 24px; */
 
   &:not(:focus-visible) {
     outline: none;
