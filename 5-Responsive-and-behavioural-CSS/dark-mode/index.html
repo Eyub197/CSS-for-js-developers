@@ -7,15 +7,31 @@
 </head>
 <body>
     <style>
+        :root {
+         --body-backgroundColor: hsl(250deg 10% 90%);
+         --body-color: hsl(250deg 20% 20%);
+         --link-color: hsl(250deg 100% 50%);
+        }
+        
         body {
-          background: hsl(250deg 10% 90%);
-          color: hsl(250deg 20% 20%);
+          background:var(--body-backgroundColor);
+          color: var(--body-color);
         }
       
         a {
-          color: hsl(250deg 100% 50%);
+          color: var(--link-color);
           text-decoration: none;
+          
         }
+       
+        @media (prefers-color-scheme: dark) {
+        :root{
+            --body-backgroundColor: hsl(250deg 10% 10%);
+            --body-color: hsl(250deg 20% 80%);
+            --link-color: hsl(250deg 100% 75%);
+        }
+        }
+        
       </style>
       
       <main>
