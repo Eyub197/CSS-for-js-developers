@@ -8,18 +8,24 @@
 </head>
 <body>
     <style>
-        .wrapper {
-          display: flex;
-        }
-      
-        nav {
-          position: sticky;
-          top: 0;
-        }
-      
-        main {
-          flex: 1;
-        }
+    .wrapper {
+      position: relative;
+      display: flex;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      /* height: 0px; */
+      /* height: min-content; */
+      align-self: flex-start
+
+      /*both work but the align-self is better becouse it uses the flex-box way  */
+    }
+
+    main {
+      flex: 1;
+    }
       </style>
       
       <section class="wrapper">
