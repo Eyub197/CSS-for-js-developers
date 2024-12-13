@@ -26,10 +26,12 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   background: forestgreen;
   color: white;
   border-radius: 50%;
   margin-right: 8px;
+  align-self: flex-start;
 `;
 
 const Heading = styled.div`
