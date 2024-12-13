@@ -8,14 +8,25 @@
 </head>
 <body>
     <style>
+
+        section {
+          display: flex;
+        }
+        
         nav {
           width: 220px;
+          flex-shrink: 10000000;
         }
       
         nav, main {
           padding: 16px;
           border: 2px solid;
         }
+        
+        main {
+          flex-grow: 1
+        }
+        
       </style>
       
       <section>
