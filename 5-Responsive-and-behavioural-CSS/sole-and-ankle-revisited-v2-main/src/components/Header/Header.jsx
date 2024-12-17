@@ -21,14 +21,14 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
+        <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        </DesktopNav>
         <Side />
       </MainHeader>
 
@@ -46,12 +46,21 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${props => props.theme.QUERIES.tabletAndSmaller} {
+    border-top: 4px solid ${props => props.theme.COLORS.gray[900]};
+  }
 `;
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${props => props.theme.QUERIES.tabletAndSmaller} {
+    display: none;
+  }
+
 `;
 
 const Side = styled.div`

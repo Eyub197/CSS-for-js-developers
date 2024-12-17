@@ -17,8 +17,20 @@ export const WEIGHTS = {
   bold: 800,
 };
 
-const BREAKPOINTS = {
-  tabletMin: 37.5 + "rem",
-  laptopMin: 59.375 + "rem",	
-  desktopMin: 81.25 + "rem",
+export const BREAKPOINTS = {
+  phone: 600,
+  tablet: 950,	
+  laptop: 1300,
+}
+
+export const QUERIES = {
+  phoneAndSmaller: `(max-width: ${BREAKPOINTS.phone  / 16}rem)`,	
+  tabletAndSmaller: `(max-width: ${BREAKPOINTS.tablet  / 16}rem)`,	
+  laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop  / 16}rem)`,	
+}
+
+export const theme = {
+  QUERIES,
+  COLORS,
+  WEIGHTS,
 }
