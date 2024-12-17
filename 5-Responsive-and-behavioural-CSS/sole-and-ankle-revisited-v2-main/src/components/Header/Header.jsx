@@ -11,9 +11,8 @@ import UnstyledButton from '../UnstyledButton';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
+
+
   // <button onClick={() => setShowMobileMenu(true)}>
 
   return (
@@ -40,6 +39,7 @@ const Header = () => {
       </MainHeader>
 
       <MobileMenu
+        open= {() => setShowMobileMenu(true)}
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
       />
@@ -53,6 +53,8 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow-y: hidden;
+  overflow-x: auto;
 
   @media ${props => props.theme.QUERIES.tabletAndSmaller} {
     border-top: 4px solid ${props => props.theme.COLORS.gray[900]};
@@ -62,13 +64,14 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(10px, 4dvw - 1rem, 48px);
   margin: 0px 48px;
+
 
   @media ${props => props.theme.QUERIES.tabletAndSmaller} {
     display: none;
   }
-`;
+  `;
 
 const MobileNav = styled.nav`
   display: none;
@@ -78,8 +81,7 @@ const MobileNav = styled.nav`
     gap: 24px;
     margin-left: auto;
   }
-
-`
+  `
 
 const Side = styled.div`
   flex: 1;
