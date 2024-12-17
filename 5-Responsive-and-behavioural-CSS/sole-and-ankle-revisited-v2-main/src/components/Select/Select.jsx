@@ -36,6 +36,11 @@ const Select = ({ label, value, children, ...delegated }) => {
 const Wrapper = styled.label`
   display: flex;
   align-items: baseline;
+
+  @media ${props => props.theme.QUERIES.tabletAndSmaller} { 
+    display: none;
+    
+  }
 `;
 
 const VisibleLabel = styled.span`
