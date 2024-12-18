@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import  {theme} from '../../constants';  
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -58,15 +59,26 @@ table {
 }
 
 #root {
-  /*
+  /*  
     Create a stacking context, without a z-index.
     This ensures that all portal content (modals and tooltips) will
     float above the app.
   */
-  isolation: isolate;
-}
 
-html, body, #root {
+  --white-color: hsl(${theme.COLORS.white});
+  --primary-color :hsl(${theme.COLORS.primary});
+  --secondary-color :hsl(${theme.COLORS.secondary});
+
+  --gray-color-100 :hsl(${theme.COLORS.gray[100]});
+  --gray-color-300 :hsl(${theme.COLORS.gray[300]});
+  --gray-color-500 :hsl(${theme.COLORS.gray[500]});
+  --gray-color-700 :hsl(${theme.COLORS.gray[700]});
+  --gray-color-900 :hsl(${theme.COLORS.gray[900]});
+  
+    isolation: isolate;
+  }
+  
+  html, body, #root {
   height: 100%;
 }
 `;

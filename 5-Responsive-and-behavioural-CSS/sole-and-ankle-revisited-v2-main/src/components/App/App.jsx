@@ -7,7 +7,6 @@ import ShoeIndex from '../ShoeIndex';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../constants';
 
-
 const App = () => {
   const [sortId, setSortId] = React.useState('newest');
 
