@@ -109,7 +109,7 @@ const ShoppingBagButton = styled(UnstyledButton)`
 const Filler = styled.div`
   flex: 1;
 
-  @media ${QUERIES.tabletAndSmaller} {
+  @media ${props => props.theme.QUERIES.tabletAndSmaller} {
     display: none;
   }
 `
@@ -123,6 +123,14 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: var(--secondary-color);
+  }
+`;
+
+
+const LogoWrapper = styled.div`
+  flex: 1;
+  @media ${props => props.theme.QUERIES.tabletAndSmaller} {
+    flex: revert;
   }
 `;
 
