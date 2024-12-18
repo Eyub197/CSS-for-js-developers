@@ -31,6 +31,7 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
+
         <MobileNav>
           <ShoppingBagButton>
             <Icon id={'shopping-bag'}/>
@@ -40,11 +41,12 @@ const Header = () => {
             <Icon id={"search"}/>
             <VisuallyHidden>Search</VisuallyHidden>  
           </UnstyledButton>
-          <UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id={"menu"}/>
             <VisuallyHidden>Open menu</VisuallyHidden>  
           </UnstyledButton>
         </MobileNav>
+
         <Filler />
       </MainHeader>
 
