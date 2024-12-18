@@ -7,6 +7,7 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
 import UnstyledButton from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -19,9 +20,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -31,11 +32,20 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
         <MobileNav>
-          <UnstyledButton><Icon id={'shopping-bag'}/></UnstyledButton>
-          <UnstyledButton><Icon id={"search"}/></UnstyledButton>
-          <UnstyledButton><Icon id={"menu"}/></UnstyledButton>
+          <ShoppingBagButton>
+            <Icon id={'shopping-bag'}/>
+            <VisuallyHidden>Open cart</VisuallyHidden>
+          </ShoppingBagButton>
+          <UnstyledButton>
+            <Icon id={"search"}/>
+            <VisuallyHidden>Search</VisuallyHidden>  
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id={"menu"}/>
+            <VisuallyHidden>Open menu</VisuallyHidden>  
+          </UnstyledButton>
         </MobileNav>
-        <Side />
+        <Filler />
       </MainHeader>
 
       <MobileMenu
@@ -57,9 +67,15 @@ const MainHeader = styled.div`
   overflow-x: auto;
 
   @media ${props => props.theme.QUERIES.tabletAndSmaller} {
+    justify-content: space-between;
+    align-items: center;
     border-top: 4px solid var(--color-gray-900);
     justify-content: space-between;
-}
+  }
+
+  @media ${props => props.theme.QUERIES.phoneAndSmaller} {
+    padding-inline: 16px;
+  }
 `;
 
 const DesktopNav = styled.nav`
@@ -78,19 +94,25 @@ const MobileNav = styled.nav`
 
   @media ${props => props.theme.QUERIES.tabletAndSmaller} {
     display: flex;
-    gap: 24px;
-    margin-left: auto;
+    gap: 32px;
   }
-  `
 
-const Side = styled.div`
-  flex: 1;
-
-  @media ${props => props.theme.QUERIES.tabletAndSmaller} {
-    visibility: hidden;
-    flex: 0 0 0;
+  @media ${props => props.theme.QUERIES.phoneAndSmaller} {
+    gap: 16px;
   }
 `;
+
+const ShoppingBagButton = styled(UnstyledButton)`
+  transform: translateX(-2px);
+`;
+
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
+`
 
 const NavLink = styled.a`
   font-size: 1.125rem;
