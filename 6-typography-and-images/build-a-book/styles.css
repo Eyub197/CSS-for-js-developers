@@ -1,0 +1,9 @@
+.wrapper {
+    max-width: 64rem;
+    margin: 32px auto;
+    border: 2px solid hsl(35deg 10% 40%);
+  }
+  
+  * {
+    font-family: 'Merriweather', serif;
+  }
