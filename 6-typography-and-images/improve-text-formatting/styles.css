@@ -21,9 +21,16 @@ main {
 .article-summary .title {
     font-size: 1.25rem;
     margin: 0.5em 0;
+    hyphens: auto;
+    overflow-wrap: break-word;
 }
 
 .article-summary p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    hyphens: auto;
     margin: 0;
 }
   
