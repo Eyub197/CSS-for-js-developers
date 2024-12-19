@@ -12,10 +12,6 @@ import VisuallyHidden from '../VisuallyHidden';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-
-
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
@@ -51,7 +47,6 @@ const Header = () => {
       </MainHeader>
 
       <MobileMenu
-        open= {() => setShowMobileMenu(true)}
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
       />

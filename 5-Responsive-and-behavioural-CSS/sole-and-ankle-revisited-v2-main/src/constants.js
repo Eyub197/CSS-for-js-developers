@@ -1,3 +1,5 @@
+import {css} from 'styled-components'
+
 export const COLORS = {
   white: '0deg 0% 100%',
   gray: {
@@ -29,8 +31,16 @@ export const QUERIES = {
   laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop  / 16}rem)`,	
 }
 
+export const Utils = {
+  flexColumn: css`
+    display: flex;
+    flex-direction: column;
+  `,
+}
+
 export const theme = {
   QUERIES,
   COLORS,
   WEIGHTS,
+  Utils,
 }
