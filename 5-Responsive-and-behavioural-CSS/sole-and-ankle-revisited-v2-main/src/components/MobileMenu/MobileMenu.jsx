@@ -72,7 +72,6 @@ const CloseButton = styled(UnstyledButton)`
   top: 10px;
   right: 0;
   padding: 16px;
-
 `
 const Filler = styled.div`
   flex: 1;
