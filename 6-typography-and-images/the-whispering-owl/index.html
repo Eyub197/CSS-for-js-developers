@@ -7,6 +7,21 @@
 </head>
 <body>
     <style>
+
+        main {
+            display: flex;
+            gap: 32px 0;
+            flex-wrap: wrap;
+        }
+
+        .image-wrapper, .reviews {
+            flex: 1;
+        }   
+
+        .image-wrapper {
+            min-width: 300px;
+        }
+
         .reviews {
           text-align: center;
         }
@@ -32,16 +47,20 @@
               10px
               hsl(260deg 50% 4% / 0.5)
             );
+            width: 100%;
+            object-position: -32px 0;
         }
 
       </style>
       
       <main>
-        <img
-          alt=""
-          class="book-img"
-          src="https://courses.joshwcomeau.com/cfj-mats/whispering-owl.png"
-        />
+        <div class="image-wrapper">
+            <img
+              alt=""
+              class="book-img"
+              src="https://courses.joshwcomeau.com/cfj-mats/whispering-owl.png"
+            />
+        </div>
         <div class="reviews">
           <blockquote class="review">
             A magnificent story about a majestic creature.
