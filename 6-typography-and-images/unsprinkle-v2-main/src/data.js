@@ -37,7 +37,7 @@ const data = [
   {
     id: 'f',
     src: '/images/marko-blazevic-cat.jpg',
-    alt: 'A small kitten standing on its back legs, reaching up towards the camera - used as a hero image',
+    alt: 'A small kitten standing on its back legs, reaching up towards the camera - image in gallery',
     tags: ['kitten', 'cat', '#cute'],
   },
   {

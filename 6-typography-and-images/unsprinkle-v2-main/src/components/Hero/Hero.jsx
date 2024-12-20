@@ -8,22 +8,22 @@ const Hero = () => {
         <source 
           type="image/avif"
           srcSet="
-          /images/hero-img.avif,
-          /images/hero-img@2x.avif,
-          /images/hero-img@3x.avif,
+          /images/hero-img.avif 1x,
+          /images/hero-img@2x.avif 2x,
+          /images/hero-img@3x.avif 3x,
           "
         />
         <source 
         type='image/jpg'
         srcSet="
-          /images/hero-img.jpg,
-          /images/hero-img@2x.jpg,
-          /images/hero-img@3x.jpg,
+          /images/hero-img.jpg 1x,
+          /images/hero-img@2x.jpg 2x,
+          /images/hero-img@3x.jpg 3x,
           "
         />       
-      <HeroImage src="/images/hero-img.jpg" />
+      <HeroImage alt="An example of an picture in the gallery - a cat on a black background" src="/images/hero-img.jpg" />
       </picture>
-      <Swoop src="/swoop.svg" />
+      <Swoop alt="" src="/swoop.svg" />
     </Wrapper>
   );
 };
