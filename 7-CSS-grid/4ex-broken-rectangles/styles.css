@@ -1,0 +1,35 @@
+.wrapper {
+    --rect-width: 100px;
+    display: grid;
+    grid-template-columns:
+      repeat(2, 1fr);
+    min-height: 100%;
+  }
+  
+  .box {
+    width: var(--rect-width);
+    height: 80px;
+  }
+  
+  .box.one {
+    background-color: pink;
+  }
+  .box.two {
+    background-color: pink;
+  }
+  .box.three {
+    background-color: lavender;
+  }
+  .box.four {
+    background-color: lavender;
+  }
+  .box.five {
+    background-color: honeydew;
+  }
+  .box.six {
+    background-color: honeydew;
+  }
+  
+  html, body {
+    height: 100%;
+  }
