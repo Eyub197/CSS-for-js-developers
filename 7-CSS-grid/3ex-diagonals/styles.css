@@ -10,10 +10,12 @@
   
 .box.one {
     background-color: pink;
+    justify-self: end;
 }
 
 .box.two {
     background-color: lavender;
+    justify-self: center;
 }
 
 .box.three {
