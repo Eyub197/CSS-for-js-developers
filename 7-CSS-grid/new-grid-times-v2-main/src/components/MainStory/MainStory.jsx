@@ -41,9 +41,19 @@ const Heading = styled.h2`
 `;
 
 const Abstract = styled.p`
+  --shown-lines: 8;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--shown-lines);
   font-size: 1rem;
   margin-bottom: 1em;
   white-space: pre-wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    --shown-lines: 16;
+  }
 `;
 
 const Location = styled.span`
