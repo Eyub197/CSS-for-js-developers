@@ -28,6 +28,9 @@ const TodaysDate = styled.p`
   font-size: 1.125rem;
   font-weight: var(--font-weight-medium);
   margin-top: -1rem;
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    margin-top: -0.75rem;
+  }
 `;
 
 export default Logo;

@@ -10,7 +10,7 @@ import Button from '../Button';
 
 const Header = () => {
   return (
-    <header>
+    <DesktopHeader>
       <SuperHeader>
         <Row>
           <ActionGroup>
@@ -21,17 +21,21 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ActionGroup>
-          <ActionGroup>
+          <MobileAction>
             <button>
               <User size={24} />
             </button>
-          </ActionGroup>
+          </MobileAction>
         </Row>
       </SuperHeader>
       <MainHeader>
         <Logo />
       </MainHeader>
-    </header>
+      <DesktopAction>
+        <Button>subscribe</Button>
+        <DesktopLink>Already a subscriber?</DesktopLink>
+        </DesktopAction>
+    </DesktopHeader>
   );
 };
 
@@ -39,6 +43,10 @@ const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    background-color: transparent;
+  }
 `;
 
 const Row = styled(MaxWidthWrapper)`
@@ -49,13 +57,16 @@ const Row = styled(MaxWidthWrapper)`
 const ActionGroup = styled.div`
   display: flex;
   gap: 24px;
-
   /*
     FIX: Remove the inline spacing that comes with
     react-feather icons.
   */
   svg {
     display: block;
+
+    @media ${props => props.theme.QUERIES.laptopAndUp} {
+      color: black;
+    }
   }
 `;
 
@@ -65,6 +76,50 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    margin-block: 48px 74px;
+  }
+
+  
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    margin-block: 0px;
+  }
 `;
+
+const MobileAction = styled(ActionGroup)`
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    display: none;
+  }
+`
+
+const DesktopAction = styled(ActionGroup)`
+  display: none;
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+`
+
+const DesktopLink = styled.a`
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-gray-900);
+`
+const DesktopHeader = styled.header`
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 16px auto 72px;
+    padding-block: 24px;
+  }
+`
+
 
 export default Header;
