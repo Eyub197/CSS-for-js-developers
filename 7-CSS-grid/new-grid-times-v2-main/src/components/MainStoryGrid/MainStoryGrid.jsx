@@ -30,11 +30,11 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <OpinionStoryList>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStory key={story.id} {...story} />
           ))}
-        </StoryList>
+        </OpinionStoryList>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -61,6 +61,7 @@ const MainStorySection = styled.section`
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+  ${props => props.theme.Utils.borderSpacing}
 `;
 
 const StoryList = styled.div`
@@ -70,10 +71,22 @@ const StoryList = styled.div`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+  ${props => props.theme.Utils.borderSpacing}
+  
+  @media ${props => props.theme.QUERIES.tabletOnly} {
+    ${props => props.theme.Utils.borderNone}
+  }
 `;
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
 `;
+
+const OpinionStoryList = styled(StoryList)`
+  @media ${props => props.theme.QUERIES.tabletOnly} {
+    flex-direction: row;
+    gap: 32px;
+  }
+`
 
 export default MainStoryGrid;

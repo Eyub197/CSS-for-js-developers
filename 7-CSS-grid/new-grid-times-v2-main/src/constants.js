@@ -1,3 +1,5 @@
+import { css } from "styled-components";
+
 export const COLORS = {
   white: 'hsl(0deg 0% 100%)',
   offblack: 'hsl(24deg 5% 6%)',
@@ -41,4 +43,23 @@ export const FAMILIES = {
   logo: 'Chomsky',
 };
 
-export const theme = { QUERIES }
+const Utils = {
+  borderSpacing : css`
+  & > * :not(:last-of-type) {
+    border-bottom: 1px solid var(--color-gray-300);
+    padding-block-end: 16px;
+  }
+
+  & > * :not(:first-of-type) {
+   margin-block-start: 16px;
+  }
+  `,
+
+  borderNone: css`
+  & > * :not(:last-of-type) {
+    border: none;
+  }
+  `
+}
+
+export const theme = { QUERIES, Utils }
