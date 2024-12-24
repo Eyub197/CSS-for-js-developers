@@ -21,10 +21,20 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+
+
+  @media ${props => props.theme.QUERIES.tabletOnly} {
+    grid-template-columns: auto;
+    grid-template-areas:
+    "image"
+    "heading"
+    "abstract";
+  }
 `;
 
 const Image = styled.img`
   grid-area: image;
+  /* align-self: start ; */
   display: block;
   width: 100%;
   height: 120px;

@@ -46,6 +46,7 @@ const MainStoryGrid = () => {
 
 const Wrapper = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas:
     'main-story'
     'secondary-stories'
@@ -53,15 +54,45 @@ const Wrapper = styled.div`
     'advertisement';
   gap: 48px;
   margin-bottom: 48px;
-`;
+  padding: 24px;
+
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+      "main-story secondary-stories"
+      "advertisement advertisement"
+      "opinion-stories opinion-stories";
+    gap: 32px;
+  }
+
+
+  @media ${props => props.theme.QUERIES.desktopAndUp} {
+    grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+    grid-template-areas: 
+      "main-story main-story secondary-stories opinion-stories"
+      "main-story main-story secondary-stories opinion-stories"
+      "main-story main-story advertisement advertisement";
+  }`;
 
 const MainStorySection = styled.section`
+
   grid-area: main-story;
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    border-right: 1px solid var(--color-gray-300);
+    padding-right: 16px;
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
   ${props => props.theme.Utils.borderSpacing}
+
+
+  @media ${props => props.theme.QUERIES.desktopAndUp} {
+    border-right: 1px solid var(--color-gray-300);
+    padding-inline-end: 16px;
+    margin-inline-start: -16px;
+  }
 `;
 
 const StoryList = styled.div`
@@ -76,17 +107,35 @@ const OpinionSection = styled.section`
   @media ${props => props.theme.QUERIES.tabletOnly} {
     ${props => props.theme.Utils.borderNone}
   }
+
+  & > * {
+    margin-inline-start: -16px;
+    margin-top: -10px;
+    
+  }
+
 `;
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+
+  @media ${props => props.theme.QUERIES.desktopAndUp} {
+  border-top: 1px solid var(--color-gray-300);
+  padding-block-start: 16px ;
+}
 `;
 
 const OpinionStoryList = styled(StoryList)`
-  @media ${props => props.theme.QUERIES.tabletOnly} {
-    flex-direction: row;
-    gap: 32px;
-  }
+
+@media ${props => props.theme.QUERIES.tabletOnly} {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 32px;
+}
+
+@media ${props => props.theme.QUERIES.desktopAndUp} {
+  margin-inline-start: -16px;
+}
 `
 
 export default MainStoryGrid;
