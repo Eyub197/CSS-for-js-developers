@@ -47,14 +47,38 @@ const SpecialtyStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   gap: 48px;
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
 `;
 
-const MarketsSection = styled.section``;
+const MarketsSection = styled.section`
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    border-right: 1px solid var(--color-gray-300);
+    padding-inline-end: 16px;
+    margin-inline-end: 16px;
+  }
+`;
 
-const MarketCards = styled.div``;
+const MarketCards = styled.div`
+  ${props => props.theme.Utils.mostUsedGridSnippet}
+`;
 
-const SportsSection = styled.section``;
+const SportsSection = styled.section`
+    @media ${props => props.theme.QUERIES.tabletAndUp} {
+      overflow: auto;
+    }
+    margin-inline-start: -32px;
+`;
 
-const SportsStories = styled.div``;
+const SportsStories = styled.div`
+  ${props => props.theme.Utils.mostUsedGridSnippet}
+
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    display: flex;
+  }
+`;
 
 export default SpecialtyStoryGrid;

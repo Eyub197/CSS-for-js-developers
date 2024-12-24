@@ -16,6 +16,11 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    min-width: 220px;
+    overflow: auto;
+  }
 `;
 
 const Image = styled.img`

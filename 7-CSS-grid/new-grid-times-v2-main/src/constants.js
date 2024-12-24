@@ -59,6 +59,12 @@ const Utils = {
   & > * :not(:last-of-type) {
     border: none;
   }
+  `,
+
+  mostUsedGridSnippet: css`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+    gap: 16px;
   `
 }
 
