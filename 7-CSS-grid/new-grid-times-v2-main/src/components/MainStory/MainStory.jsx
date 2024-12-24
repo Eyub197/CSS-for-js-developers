@@ -49,10 +49,15 @@ const Abstract = styled.p`
   margin-bottom: 1em;
   white-space: pre-wrap;
   text-overflow: ellipsis;
+  /* for ellipsis */
   overflow: hidden;
 
   @media ${props => props.theme.QUERIES.tabletAndUp} {
     --shown-lines: 16;
+  }
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    --shown-lines: 10;
   }
 `;
 

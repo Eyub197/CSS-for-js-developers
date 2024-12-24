@@ -16,28 +16,21 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 };
 
 const Wrapper = styled.article`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
   color: var(--color-gray-900);
-
-  @media ${props => props.theme.QUERIES.tabletOnly} {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
 `;
 
 const Avatar = styled.img`
   display: block;
+  float: right;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  margin-inline-start: 16px;
   object-fit: cover;
+  border-radius: 50%;
 
   @media ${props => props.theme.QUERIES.tabletOnly} {
-    margin-bottom: 8px;
+    float: revert;
+    margin-inline-start: revert;
   }
 `;
 
