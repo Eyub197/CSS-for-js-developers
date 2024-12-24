@@ -19,12 +19,13 @@ body {
     background: white;
     border-radius: 8px;
     border: 2px solid hsl(240deg 100% 75%);
-    transition: 250ms transform 
+    /* transition: 250ms transform  */
   }
   
-  .card-link:hover .card {
+  /* .card-link:hover .card {
     transform: translateY(-10px);
   }
+   */
   .card img {
     width: 64px;
     height: 64px;
