@@ -17,12 +17,20 @@ const SecondaryStory = ({ id, title, image, location, abstract }) => {
 
 const Wrapper = styled.article`
   display: grid;
-  grid-template-areas:
+  grid-template-columns: 1fr;
+    grid-template-areas:
+    "image"
+    "heading"
+    "abstract";
+    gap: 4px 16px;
+
+  /* @container (min-width: 310px){
+    grid-template-areas:
     'image heading'
     'image abstract';
-  gap: 4px 16px;
-  grid-template-columns: 120px 1fr;
-  color: var(--color-gray-900);
+    grid-template-columns: 120px 1fr;
+  } */
+
 
   @media ${props => props.theme.QUERIES.tabletOnly} {
     grid-template-columns: 1fr;

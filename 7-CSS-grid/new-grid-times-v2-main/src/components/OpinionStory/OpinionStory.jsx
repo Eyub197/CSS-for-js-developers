@@ -29,10 +29,15 @@ const Avatar = styled.img`
   object-fit: cover;
   border-radius: 50%;
 
-  @media ${props => props.theme.QUERIES.tabletOnly} {
+  @container (max-width: 240px) {
     float: revert;
     margin-inline-start: revert;
   }
+
+  /* @media ${props => props.theme.QUERIES.tabletOnly} {
+   float: revert;
+   margin-inline-start: revert;
+  } */
 
 `;
 
