@@ -14,21 +14,28 @@
           width: 100%;
           height: 100%;
           background: hsl(0deg 0% 0% / 0.75);
+          display: grid;
+          place-content: center;
         }
       
         .dialog-content {
+          position: relative;
           width: 600px;
           max-width: 100vw;
           height: 400px;
           background: white;
-          border-radius: 6px;
+          border-radius: 6px;  
         }
       
         .close-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
           padding: 16px;
           background: transparent;
           border: none;
           font-weight: bold;
+          transform: translateY(-100%);
         }
       </style>
       
