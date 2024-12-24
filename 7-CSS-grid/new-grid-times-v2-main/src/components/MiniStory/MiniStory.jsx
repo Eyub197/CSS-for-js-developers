@@ -17,10 +17,11 @@ const Wrapper = styled.article`
   flex-direction: column;
   gap: 8px;
   
-  @media ${props => props.theme.QUERIES.tabletAndUp} {
+  /* another way */
+  /* @media ${props => props.theme.QUERIES.tabletAndUp} {
     min-width: 220px;
     overflow: auto;
-  }
+  } */
 `;
 
 const Image = styled.img`

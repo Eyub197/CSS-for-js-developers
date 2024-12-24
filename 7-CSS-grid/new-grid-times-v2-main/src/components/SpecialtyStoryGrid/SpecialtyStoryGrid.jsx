@@ -36,7 +36,9 @@ const SpecialtyStoryGrid = () => {
         </SectionTitle>
         <SportsStories>
           {SPORTS_STORIES.map((data) => (
-            <MiniStory key={data.id} {...data} />
+            <SportsStoryWrapper key={data.id}>
+              <MiniStory {...data} />
+            </SportsStoryWrapper>
           ))}
         </SportsStories>
       </SportsSection>
@@ -48,9 +50,16 @@ const Wrapper = styled.div`
   display: grid;
   gap: 48px;
 
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    /* grid-template-columns: minmax(0, auto); */
+    /* Both works */
+    grid-template-columns: 100%;
+    gap: 64px;
+  }
+
   @media ${props => props.theme.QUERIES.laptopAndUp} {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr minmax(0, 1fr);
+    gap: 0px;
   }
 `;
 
@@ -67,18 +76,20 @@ const MarketCards = styled.div`
 `;
 
 const SportsSection = styled.section`
-    @media ${props => props.theme.QUERIES.tabletAndUp} {
-      overflow: auto;
-    }
-    margin-inline-start: -32px;
-`;
+  `;
 
 const SportsStories = styled.div`
   ${props => props.theme.Utils.mostUsedGridSnippet}
 
   @media ${props => props.theme.QUERIES.tabletAndUp} {
     display: flex;
+    grid-template-columns: revert;
+    overflow: auto;
   }
 `;
+
+const SportsStoryWrapper = styled.div`
+  min-width: 220px;
+`
 
 export default SpecialtyStoryGrid;

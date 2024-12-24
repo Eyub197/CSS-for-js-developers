@@ -63,7 +63,7 @@ const Utils = {
 
   mostUsedGridSnippet: css`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
     gap: 16px;
   `
 }

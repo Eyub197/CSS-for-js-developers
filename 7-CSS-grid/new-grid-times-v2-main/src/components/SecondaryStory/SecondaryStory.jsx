@@ -17,11 +17,10 @@ const SecondaryStory = ({ id, title, image, location, abstract }) => {
 
 const Wrapper = styled.article`
   display: grid;
-  grid-template-columns: 1fr;
-    grid-template-areas:
-    "image"
-    "heading"
-    "abstract";
+  grid-template-columns: 120px 1fr;
+  grid-template-areas:
+    'image heading'
+    'image abstract';
     gap: 4px 16px;
 
   /* @container (min-width: 310px){
