@@ -23,7 +23,7 @@ const Footer = () => {
               </li>
             </TopNavList>
           </nav>
-          <Social>
+          < >
             <a href="/">
               <VisuallyHidden>
                 Visit The Grid Times on Facebook
@@ -36,7 +36,7 @@ const Footer = () => {
               </VisuallyHidden>
               <Twitter size={20} />
             </a>
-          </Social>
+          </>
         </TopRow>
         <MainNavArea>
           <nav>
@@ -144,6 +144,17 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
+
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    justify-content: flex-end;
+  }
+
 `;
 
 const Social = styled.div`
@@ -170,6 +181,19 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${props => props.theme.QUERIES.tabletAndUp} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: 64px ;
+  }
+
+  
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    justify-content: space-between  ;
+  }
+
 `;
 
 const MainNavHeading = styled.h2`
@@ -196,6 +220,11 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.a`

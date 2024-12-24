@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Menu, Search, User } from 'react-feather';
 
-import { QUERIES } from '../../constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Logo from '../Logo';
@@ -10,7 +9,7 @@ import Button from '../Button';
 
 const Header = () => {
   return (
-    <DesktopHeader>
+    <header>
       <SuperHeader>
         <Row>
           <ActionGroup>
@@ -21,21 +20,29 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ActionGroup>
-          <MobileAction>
+          <ActionGroup>
             <button>
               <User size={24} />
             </button>
-          </MobileAction>
+          </ActionGroup>
         </Row>
       </SuperHeader>
       <MainHeader>
+        <DesktopActionGroup>
+          <button>
+            <Search size={24} />
+          </button>
+          <button>
+            <Menu size={24} />
+          </button>
+        </DesktopActionGroup>
         <Logo />
+        <ButtonWrapper>
+          <Button>subscribe</Button>
+          <DesktopLink>Already a subscriber?</DesktopLink>
+        </ButtonWrapper>
       </MainHeader>
-      <DesktopAction>
-        <Button>subscribe</Button>
-        <DesktopLink>Already a subscriber?</DesktopLink>
-        </DesktopAction>
-    </DesktopHeader>
+    </header>
   );
 };
 
@@ -45,7 +52,7 @@ const SuperHeader = styled.div`
   color: white;
 
   @media ${props => props.theme.QUERIES.laptopAndUp} {
-    background-color: transparent;
+    display: none;
   }
 `;
 
@@ -70,6 +77,14 @@ const ActionGroup = styled.div`
   }
 `;
 
+const DesktopActionGroup = styled(ActionGroup)`
+  display: none;
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    display: flex;
+  }
+`
+
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
@@ -78,47 +93,36 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-bottom: 48px;
 
   @media ${props => props.theme.QUERIES.tabletAndUp} {
-    margin-block: 48px 74px;
+    margin-block: 48px 72px;
   }
 
-  
   @media ${props => props.theme.QUERIES.laptopAndUp} {
-    margin-block: 0px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: revert;
+    margin-block-start: 16px;
   }
 `;
 
-const MobileAction = styled(ActionGroup)`
-
-  @media ${props => props.theme.QUERIES.laptopAndUp} {
-    display: none;
-  }
-`
-
-const DesktopAction = styled(ActionGroup)`
+const ButtonWrapper = styled.div`
   display: none;
 
-  @media ${props => props.theme.QUERIES.laptopAndUp} {  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    display: revert;
+    position: relative;
+    justify-self: end;
+}
 `
-
 const DesktopLink = styled.a`
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-block-start: 8px ;
   font-size: 0.875rem;
   font-style: italic;
   color: var(--color-gray-900);
-`
-const DesktopHeader = styled.header`
-  @media ${props => props.theme.QUERIES.laptopAndUp} {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 16px auto 72px;
-    padding-block: 24px;
-  }
+  text-decoration: underline;
 `
 
 

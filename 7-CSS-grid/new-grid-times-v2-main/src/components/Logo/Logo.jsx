@@ -22,15 +22,16 @@ const Wrapper = styled.div`
 const Link = styled.a`
   font-family: var(--font-family-logo);
   font-size: 3rem;
+
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    font-size: 4rem;
+  }
 `;
 
 const TodaysDate = styled.p`
   font-size: 1.125rem;
   font-weight: var(--font-weight-medium);
   margin-top: -1rem;
-  @media ${props => props.theme.QUERIES.tabletAndUp} {
-    margin-top: -0.75rem;
-  }
 `;
 
 export default Logo;
