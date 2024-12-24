@@ -17,6 +17,7 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+  container-type: inline-size;
 `;
 
 const Avatar = styled.img`
@@ -32,6 +33,7 @@ const Avatar = styled.img`
     float: revert;
     margin-inline-start: revert;
   }
+
 `;
 
 const AuthorName = styled.p`

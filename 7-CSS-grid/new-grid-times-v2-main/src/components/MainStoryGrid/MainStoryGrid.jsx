@@ -23,7 +23,9 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <VerticalStoryWrapper key={story.id}>
+              <SecondaryStory key={story.id} {...story} />
+            </VerticalStoryWrapper>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +34,9 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <OpinionStoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <OpinionStoryWrapper key={story.id}>
+              <OpinionStory {...story} />
+            </OpinionStoryWrapper>
           ))}
         </OpinionStoryList>
       </OpinionSection>
@@ -54,7 +58,6 @@ const Wrapper = styled.div`
     'advertisement';
   gap: 48px;
   margin-bottom: 48px;
-  padding: 24px;
 
   @media ${props => props.theme.QUERIES.tabletAndUp} {
     grid-template-columns: 2fr 1fr;
@@ -62,80 +65,87 @@ const Wrapper = styled.div`
       "main-story secondary-stories"
       "advertisement advertisement"
       "opinion-stories opinion-stories";
-    gap: 32px;
+    gap: 48px 0px;
   }
 
 
-  @media ${props => props.theme.QUERIES.desktopAndUp} {
-    grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    grid-template-columns: 5fr 4fr 3fr;
     grid-template-areas: 
-      "main-story main-story secondary-stories opinion-stories"
-      "main-story main-story secondary-stories opinion-stories"
-      "main-story main-story advertisement advertisement";
-  }`;
+      "main-story secondary-stories opinion-stories"
+      "main-story advertisement advertisement";
+    gap: 0px;
+}`;
 
 const MainStorySection = styled.section`
-
   grid-area: main-story;
+
   @media ${props => props.theme.QUERIES.tabletAndUp} {
+    margin-inline-end: 16px;
+    padding-inline-end: 16px;
     border-right: 1px solid var(--color-gray-300);
-    padding-right: 16px;
   }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
-  ${props => props.theme.Utils.borderSpacing}
 
-
-  @media ${props => props.theme.QUERIES.desktopAndUp} {
-    border-right: 1px solid var(--color-gray-300);
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    margin-inline-end: 16px;
     padding-inline-end: 16px;
-    margin-inline-start: -16px;
+    border-right: 1px solid var(--color-gray-300);
   }
 `;
 
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  container-type: inline-size;
 `;
+
+const OpinionStoryList = styled(StoryList)`
+  @media ${props => props.theme.QUERIES.tabletOnly} {
+    flex-direction: row;
+    gap: 32px;
+}
+`
+
+const VerticalStoryWrapper = styled.div`
+  &:not(:last-of-type) {
+    padding-block-end: 16px;
+    margin-block-end: 16px;
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+`
+
+const OpinionStoryWrapper = styled(VerticalStoryWrapper)`
+  @media ${props => props.theme.QUERIES.tabletOnly} {
+    flex: 1;
+
+    &:not(:last-of-type) {
+      padding-block-end: revert;
+      margin-block-end: revert;
+      border: revert;
+    }
+  }`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
-  ${props => props.theme.Utils.borderSpacing}
-  
-  @media ${props => props.theme.QUERIES.tabletOnly} {
-    ${props => props.theme.Utils.borderNone}
-  }
 
-  & > * {
-    margin-inline-start: -16px;
-    margin-top: -10px;
-    
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+    margin-block-start: -8px;
   }
-
-`;
+`
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
 
-  @media ${props => props.theme.QUERIES.desktopAndUp} {
-  border-top: 1px solid var(--color-gray-300);
+  @media ${props => props.theme.QUERIES.laptopAndUp} {
+  margin-block-start: 16px;	
   padding-block-start: 16px ;
+  border-top: 1px solid var(--color-gray-300);
 }
 `;
 
-const OpinionStoryList = styled(StoryList)`
-
-@media ${props => props.theme.QUERIES.tabletOnly} {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  column-gap: 32px;
-}
-
-@media ${props => props.theme.QUERIES.desktopAndUp} {
-  margin-inline-start: -16px;
-}
-`
 
 export default MainStoryGrid;
