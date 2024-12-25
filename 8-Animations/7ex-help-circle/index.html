@@ -13,6 +13,12 @@
             to { transform: translateY(0%); } 
         }
         
+        @keyframes fade-in {
+         from { opacity: 0; }
+         to { opacity: 1; }
+        }
+
+
         .help-circle {
             --spacing: 32px;
             position: fixed;
@@ -22,6 +28,11 @@
             animation-delay: 1000ms;
         }
 
+        @media (prefers-reduced-motion: no-preference) {
+            .help-circle {
+                animation-name: slide-in 
+            }
+        }
 
       </style>
       
