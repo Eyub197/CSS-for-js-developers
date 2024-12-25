@@ -16,8 +16,25 @@ Acceptance criteria:
   bottom-right corner
 -->
 
-    <style> 
-
+  <style> 
+    body{
+        overflow: clip;
+    }
+  
+  .help-circle {
+    --spacing: 32px;
+    position: absolute;
+    bottom: var(--spacing);
+    right: var(--spacing);
+    animation: pop-up 500ms backwards ease-in;
+    animation-delay: 1000ms
+  }
+  
+  @keyframes pop-up {
+    from { transform: translateY(calc(100% + var(--spacing))) }
+    to { transform: translateY(0%) }
+  }
+  
   </style>
   
   <button class="help-circle">
