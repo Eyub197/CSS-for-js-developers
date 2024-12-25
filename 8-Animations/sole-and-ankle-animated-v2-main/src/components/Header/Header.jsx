@@ -11,6 +11,8 @@ import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+  // in each navLink you can add bold span and have a variable which will set which one is shown
+  // or add on hover effect to each navLink
 
   return (
     <header>
@@ -20,12 +22,30 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">
+            <NormalLink>Sale</NormalLink>
+            <BoldLink>Sale</BoldLink>
+          </NavLink>
+          <NavLink href="/new">
+            <NormalLink>New&nbsp;Release</NormalLink>
+            <BoldLink>New&nbsp;Release  </BoldLink>
+          </NavLink>
+          <NavLink href="/men">
+            <NormalLink>New&nbsp;Men</NormalLink>
+            <BoldLink>New&nbsp;Men</BoldLink>
+          </NavLink>
+          <NavLink href="/women">
+            <NormalLink>Women</NormalLink>
+            <BoldLink>Women</BoldLink>
+          </NavLink>
+          <NavLink href="/kids">
+            <NormalLink>Kids</NormalLink>
+            <BoldLink>Kids</BoldLink>
+          </NavLink>
+          <NavLink href="/collections">
+            <NormalLink>Collections</NormalLink>
+            <BoldLink>Collections</BoldLink>
+          </NavLink>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -75,6 +95,7 @@ const DesktopNav = styled.nav`
   display: flex;
   gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
+  overflow: clip;
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
@@ -84,6 +105,8 @@ const DesktopNav = styled.nav`
 const MobileActions = styled.div`
   display: none;
 
+  
+  
   @media ${QUERIES.tabletAndSmaller} {
     gap: 32px;
     display: flex;
@@ -114,16 +137,58 @@ const Filler = styled.div`
   }
 `;
 
+const BoldLink = styled.span`
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  top: 20px;
+  left: 0px;
+  transition: 200ms transform, 200ms opacity ease-in-out;
+
+`
+
+const NormalLink = styled.span`
+  display: inline-block;
+  transition: 200ms transform ease-in-out;
+`
+
+
 const NavLink = styled.a`
+  position: relative;
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
-
+  transform: translateY(0px);
+  
   &:first-of-type {
     color: var(--color-secondary);
   }
+  
+  &:hover ${NormalLink} {
+    font-weight: ${WEIGHTS.bold};
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover ${BoldLink} {
+      transform: translateY(-20px);
+      font-weight: ${WEIGHTS.bold};
+      opacity: 1;
+    }
+  
+    &:hover ${NormalLink} {
+      font-weight: revert;
+      transform: translateY(-100%);
+    }
+    
+  }
+
+
+
 `;
+
+
+
 
 export default Header;
