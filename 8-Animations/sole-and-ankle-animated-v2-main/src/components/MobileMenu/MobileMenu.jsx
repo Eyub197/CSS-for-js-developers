@@ -8,12 +8,14 @@ import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 
+
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
-    <Dialog.Root open={isOpen} onOpenChange={onDismiss}>
+    <Dialog.Root  open={isOpen} onOpenChange={onDismiss}>
       <Dialog.Portal>
-        <Overlay />
-        <Content>
+        <Overlay isOpen={isOpen} />
+        <Content isOpen={isOpen}  open={isOpen}         
+        >
           <CloseButton onClick={onDismiss}>
             <Icon id="close" />
             <VisuallyHidden>Dismiss menu</VisuallyHidden>
@@ -43,9 +45,12 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 };
 
 const Overlay = styled(Dialog.Overlay)`
+  display: block;
   position: fixed;
   inset: 0;
   background: var(--color-backdrop);
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  transition: opacity 200ms;
 `;
 
 const Content = styled(Dialog.Content)`
@@ -54,11 +59,15 @@ const Content = styled(Dialog.Content)`
   right: 0;
   bottom: 0;
   background: white;
-  width: 300px;
+  width: 320px;
   height: 100%;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
+  box-shadow: -8px 0 16px rgba(0, 0, 0, 0.2);
+  transform: ${({ isOpen }) =>
+    isOpen ? 'translateX(0%)' : 'translateX(100%)'};
+  transition: transform 300ms ease-in-out;
 `;
 
 const CloseButton = styled(UnstyledButton)`

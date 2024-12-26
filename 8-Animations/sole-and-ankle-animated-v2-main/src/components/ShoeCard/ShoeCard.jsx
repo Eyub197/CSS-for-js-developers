@@ -35,16 +35,13 @@ const ShoeCard = ({
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
-
         <ImageWrapper>
-          <AnimationWrapper>
           <Image alt="" src={imageSrc} />
-          {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
-          {variant === 'new-release' && (
-            <NewFlag>Just released!</NewFlag>
-          )}
-          </AnimationWrapper>
         </ImageWrapper>
+        {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
+        {variant === 'new-release' && (
+          <NewFlag>Just released!</NewFlag>
+        )}
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
@@ -77,20 +74,34 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
-
-
-const Image = styled.img`
-  width: 100%;
-  border-radius: 16px 16px 4px 4px;
-  transition: 350ms transform ease-in-out;
-`;
-  
-const ImageWrapper = styled.div`
+const Wrapper = styled.article`
   position: relative;
 `;
 
+const ImageWrapper = styled.div`
+  border-radius: 16px 16px 4px 4px;
+  
+  /* To reduce the overflow from the zoomed image */
+  overflow: clip;
+`;
 
+const Image = styled.img`
+  display: block;
+  width: 100%;
+  transform-origin: 50% 75%;
+  transition: transform 500ms;
+  will-change: transform;
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    ${Link}:hover &, ${Link}:focus & {
+      transform: scale(1.1);
+      transition: transform 200ms;
+    } 
+  }
+
+
+
+`;
 
 const Row = styled.div`
   font-size: 1rem;
