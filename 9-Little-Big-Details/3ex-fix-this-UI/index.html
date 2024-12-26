@@ -9,26 +9,27 @@
     <style>
         html {
           --color-bg: hsl(0deg 0% 25%);
-          --color-text: hsl(0deg 0% 60%);
+          --color-text: hsl(0deg 0% 80%);
           --color-line-1: hsl(355deg 100% 60%);
-          --color-line-2: hsl(110deg 50% 40%);
+          --color-line-2: hsl(40deg 100% 60%);
         }
       
         header button {
-          background: hsl(0deg 0% 100% / 0.2);
+          background: hsl(0deg 0% 0% / 0.2);
           color: hsl(40deg 100% 60%);
         }
       
         .legend .box.froogle {
           background-color: var(--color-line-1);
         }
-        
+
         .legend .box.glamazon {
           background-color: var(--color-line-2);
         }
       
         .froogle-line {
           stroke: var(--color-line-1);
+          stroke-dasharray: 8px 8px;
         }
 
         .glamazon-line {
