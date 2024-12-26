@@ -8,6 +8,8 @@ import UnstyledButton from '../UnstyledButton';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import VisuallyHidden from '../VisuallyHidden';
+import NavLink from '../NavLink';
+
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -23,28 +25,34 @@ const Header = () => {
         </LogoWrapper>
         <DesktopNav>
           <NavLink href="/sale">
-            <NormalLink>Sale</NormalLink>
-            <BoldLink>Sale</BoldLink>
+          Sale
+            {/* <NormalLink>Sale</NormalLink>
+            <BoldLink>Sale</BoldLink> */}
           </NavLink>
           <NavLink href="/new">
-            <NormalLink>New&nbsp;Release</NormalLink>
-            <BoldLink>New&nbsp;Release  </BoldLink>
+          New&nbsp;Release
+            {/* <NormalLink>New&nbsp;Release</NormalLink>
+            <BoldLink>New&nbsp;Release  </BoldLink> */}
           </NavLink>
           <NavLink href="/men">
-            <NormalLink>New&nbsp;Men</NormalLink>
-            <BoldLink>New&nbsp;Men</BoldLink>
+          Men
+            {/* <NormalLink>Men</NormalLink>
+            <BoldLink>Men</BoldLink> */}
           </NavLink>
           <NavLink href="/women">
-            <NormalLink>Women</NormalLink>
-            <BoldLink>Women</BoldLink>
+          Women
+            {/* <NormalLink>Women</NormalLink>
+            <BoldLink>Women</BoldLink> */}
           </NavLink>
           <NavLink href="/kids">
-            <NormalLink>Kids</NormalLink>
-            <BoldLink>Kids</BoldLink>
+          Kids
+            {/* <NormalLink>Kids</NormalLink>
+            <BoldLink>Kids</BoldLink> */}
           </NavLink>
           <NavLink href="/collections">
-            <NormalLink>Collections</NormalLink>
-            <BoldLink>Collections</BoldLink>
+          Collections
+            {/* <NormalLink>Collections</NormalLink>
+            <BoldLink>Collections</BoldLink> */}
           </NavLink>
         </DesktopNav>
         <MobileActions>
@@ -137,55 +145,55 @@ const Filler = styled.div`
   }
 `;
 
-const BoldLink = styled.span`
-  position: absolute;
-  display: inline-block;
-  opacity: 0;
-  top: 20px;
-  left: 0px;
-  transition: 200ms transform, 200ms opacity ease-in-out;
+// const BoldLink = styled.span`
+//   position: absolute;
+//   display: inline-block;
+//   opacity: 0;
+//   top: 20px;
+//   left: 0px;
+//   transition: 200ms transform, 200ms opacity ease-in-out;
 
-`
+// `
 
-const NormalLink = styled.span`
-  display: inline-block;
-  transition: 200ms transform ease-in-out;
-`
+// const NormalLink = styled.span`
+//   display: inline-block;
+//   transition: 200ms transform ease-in-out;
+// `
 
 
-const NavLink = styled.a`
-  position: relative;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-gray-900);
-  font-weight: ${WEIGHTS.medium};
-  transform: translateY(0px);
+// const NavLink = styled.a`
+//   position: relative;
+//   font-size: 1.125rem;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   color: var(--color-gray-900);
+//   font-weight: ${WEIGHTS.medium};
+//   transform: translateY(0px);
   
-  &:first-of-type {
-    color: var(--color-secondary);
-  }
+//   &:first-of-type {
+//     color: var(--color-secondary);
+//   }
   
-  &:hover ${NormalLink} {
-    font-weight: ${WEIGHTS.bold};
-  }
+//   &:hover ${NormalLink} {
+//     font-weight: ${WEIGHTS.bold};
+//   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    &:hover ${BoldLink} {
-      transform: translateY(-20px);
-      font-weight: ${WEIGHTS.bold};
-      opacity: 1;
-    }
+//   @media (prefers-reduced-motion: no-preference) {
+//     &:hover ${BoldLink} {
+//       transform: translateY(-20px);
+//       font-weight: ${WEIGHTS.bold};
+//       opacity: 1;
+//     }
   
-    &:hover ${NormalLink} {
-      font-weight: revert;
-      transform: translateY(-100%);
-    }
+//     &:hover ${NormalLink} {
+//       font-weight: revert;
+//       transform: translateY(-100%);
+//     }
     
-  }
+//   }
 
  
-`;
+// `;
 
 
 
