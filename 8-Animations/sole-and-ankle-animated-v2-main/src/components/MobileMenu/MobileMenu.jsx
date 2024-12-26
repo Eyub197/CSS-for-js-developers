@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as Dialog from '@radix-ui/react-dialog';
 
 import { QUERIES, WEIGHTS } from '../../constants';
@@ -13,67 +13,89 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Dialog.Root  open={isOpen} onOpenChange={onDismiss}>
       <Dialog.Portal>
-        <Overlay isOpen={isOpen} />
-        <Content isOpen={isOpen}  open={isOpen}         
-        >
-          <CloseButton onClick={onDismiss}>
-            <Icon id="close" />
-            <VisuallyHidden>Dismiss menu</VisuallyHidden>
-          </CloseButton>
-          <VisuallyHidden>
-            <Dialog.Title>Mobile navigation</Dialog.Title>
-            <Dialog.Description>Mobile navigation</Dialog.Description>
-          </VisuallyHidden>
-          <Filler />
-          <Nav>
-            <NavLink href="/sale">Sale</NavLink>
-            <NavLink href="/new">New&nbsp;Releases</NavLink>
-            <NavLink href="/men">Men</NavLink>
-            <NavLink href="/women">Women</NavLink>
-            <NavLink href="/kids">Kids</NavLink>
-            <NavLink href="/collections">Collections</NavLink>
-          </Nav>
-          <Footer>
-            <SubLink href="/terms">Terms and Conditions</SubLink>
-            <SubLink href="/privacy">Privacy Policy</SubLink>
-            <SubLink href="/contact">Contact Us</SubLink>
-          </Footer>
+        <Overlay/>
+        <Content>
+          <InnerWrapper>
+            <CloseButton onClick={onDismiss}>
+              <Icon id="close" />
+              <VisuallyHidden>Dismiss menu</VisuallyHidden>
+            </CloseButton>
+            <VisuallyHidden>
+              <Dialog.Title>Mobile navigation</Dialog.Title>
+              <Dialog.Description>Mobile navigation</Dialog.Description>
+            </VisuallyHidden>
+            <Filler />
+            <Nav>
+              <NavLink href="/sale">Sale</NavLink>
+              <NavLink href="/new">New&nbsp;Releases</NavLink>
+              <NavLink href="/men">Men</NavLink>
+              <NavLink href="/women">Women</NavLink>
+              <NavLink href="/kids">Kids</NavLink>
+              <NavLink href="/collections">Collections</NavLink>
+            </Nav>
+            <Footer>
+              <SubLink href="/terms">Terms and Conditions</SubLink>
+              <SubLink href="/privacy">Privacy Policy</SubLink>
+              <SubLink href="/contact">Contact Us</SubLink>
+            </Footer>
+          </InnerWrapper>
         </Content>
       </Dialog.Portal>
     </Dialog.Root>
   );
 };
 
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; } 
+`
+
+const slideIn = keyframes`
+  from { transform: translateX(100%); }
+  to { transform: translateX(0%); }
+`
+
 const Overlay = styled(Dialog.Overlay)`
   display: block;
   position: fixed;
   inset: 0;
   background: var(--color-backdrop);
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transition: opacity 200ms;
+  animation: ${fadeIn} 500ms; 
 `;
 
 const Content = styled(Dialog.Content)`
+--overfill: 16px;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   background: white;
-  width: 320px;
-  height: 100%;
-  padding: 24px 32px;
   display: flex;
   flex-direction: column;
+  width: calc(300px + var(--overfill));
+  margin-right: calc(var(--overfill) * -1);
+  height: 100%;
+  padding: 24px 32px;
   box-shadow: -8px 0 16px rgba(0, 0, 0, 0.2);
-  transform: ${({ isOpen }) =>
-    isOpen ? 'translateX(0%)' : 'translateX(100%)'};
-  transition: transform 300ms ease-in-out;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${slideIn} 500ms both cubic-bezier(0, 0.6, 0.32, 1.06);
+    animation-delay: 200ms
+  }
 `;
+
+const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: ${fadeIn} 600ms both;
+  animation-delay: 400ms;
+`
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;
   top: 10px;
-  right: 0;
+  right: var(--overfill);
   padding: 16px;
 `;
 
