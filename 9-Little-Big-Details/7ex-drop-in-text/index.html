@@ -7,6 +7,17 @@
 </head>
 <body>
     <style>
+          @keyframes drop-in-text {
+         from { 
+            transform: translateY(-10px);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+
+         to { 
+            transform: translateY(0px);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }   
+    
+  }
+
         .highlighted {
           background: hsl(50deg 100% 70%);
           padding: 12px 24px;
@@ -15,6 +26,7 @@
           width: -moz-fit-content;
           width: fit-content;
           border-radius: 4px;
+          animation: drop-in-text 1200ms both ease-in-out;
         }
       </style>
       
